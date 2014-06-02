@@ -1,0 +1,1214 @@
+USE [master]
+GO
+/****** Object:  Database [CuentaCobrarColegio]    Script Date: 06/01/2014 13:20:52 ******/
+CREATE DATABASE [CuentaCobrarColegio] ON  PRIMARY 
+( NAME = N'CuentaCobrarColegio', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL10_50.MSSQLSERVER\MSSQL\DATA\CuentaCobrarColegio.mdf' , SIZE = 2304KB , MAXSIZE = UNLIMITED, FILEGROWTH = 1024KB )
+ LOG ON 
+( NAME = N'CuentaCobrarColegio_log', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL10_50.MSSQLSERVER\MSSQL\DATA\CuentaCobrarColegio_log.LDF' , SIZE = 504KB , MAXSIZE = 2048GB , FILEGROWTH = 10%)
+GO
+ALTER DATABASE [CuentaCobrarColegio] SET COMPATIBILITY_LEVEL = 100
+GO
+IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
+begin
+EXEC [CuentaCobrarColegio].[dbo].[sp_fulltext_database] @action = 'enable'
+end
+GO
+ALTER DATABASE [CuentaCobrarColegio] SET ANSI_NULL_DEFAULT OFF
+GO
+ALTER DATABASE [CuentaCobrarColegio] SET ANSI_NULLS OFF
+GO
+ALTER DATABASE [CuentaCobrarColegio] SET ANSI_PADDING OFF
+GO
+ALTER DATABASE [CuentaCobrarColegio] SET ANSI_WARNINGS OFF
+GO
+ALTER DATABASE [CuentaCobrarColegio] SET ARITHABORT OFF
+GO
+ALTER DATABASE [CuentaCobrarColegio] SET AUTO_CLOSE OFF
+GO
+ALTER DATABASE [CuentaCobrarColegio] SET AUTO_CREATE_STATISTICS ON
+GO
+ALTER DATABASE [CuentaCobrarColegio] SET AUTO_SHRINK OFF
+GO
+ALTER DATABASE [CuentaCobrarColegio] SET AUTO_UPDATE_STATISTICS ON
+GO
+ALTER DATABASE [CuentaCobrarColegio] SET CURSOR_CLOSE_ON_COMMIT OFF
+GO
+ALTER DATABASE [CuentaCobrarColegio] SET CURSOR_DEFAULT  GLOBAL
+GO
+ALTER DATABASE [CuentaCobrarColegio] SET CONCAT_NULL_YIELDS_NULL OFF
+GO
+ALTER DATABASE [CuentaCobrarColegio] SET NUMERIC_ROUNDABORT OFF
+GO
+ALTER DATABASE [CuentaCobrarColegio] SET QUOTED_IDENTIFIER OFF
+GO
+ALTER DATABASE [CuentaCobrarColegio] SET RECURSIVE_TRIGGERS OFF
+GO
+ALTER DATABASE [CuentaCobrarColegio] SET  ENABLE_BROKER
+GO
+ALTER DATABASE [CuentaCobrarColegio] SET AUTO_UPDATE_STATISTICS_ASYNC OFF
+GO
+ALTER DATABASE [CuentaCobrarColegio] SET DATE_CORRELATION_OPTIMIZATION OFF
+GO
+ALTER DATABASE [CuentaCobrarColegio] SET TRUSTWORTHY OFF
+GO
+ALTER DATABASE [CuentaCobrarColegio] SET ALLOW_SNAPSHOT_ISOLATION OFF
+GO
+ALTER DATABASE [CuentaCobrarColegio] SET PARAMETERIZATION SIMPLE
+GO
+ALTER DATABASE [CuentaCobrarColegio] SET READ_COMMITTED_SNAPSHOT OFF
+GO
+ALTER DATABASE [CuentaCobrarColegio] SET HONOR_BROKER_PRIORITY OFF
+GO
+ALTER DATABASE [CuentaCobrarColegio] SET  READ_WRITE
+GO
+ALTER DATABASE [CuentaCobrarColegio] SET RECOVERY FULL
+GO
+ALTER DATABASE [CuentaCobrarColegio] SET  MULTI_USER
+GO
+ALTER DATABASE [CuentaCobrarColegio] SET PAGE_VERIFY CHECKSUM
+GO
+ALTER DATABASE [CuentaCobrarColegio] SET DB_CHAINING OFF
+GO
+EXEC sys.sp_db_vardecimal_storage_format N'CuentaCobrarColegio', N'ON'
+GO
+USE [CuentaCobrarColegio]
+GO
+/****** Object:  Table [dbo].[SubMenu]    Script Date: 06/01/2014 13:20:58 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[SubMenu](
+	[IdSubMenu] [int] NOT NULL,
+	[Nombre] [varchar](100) NOT NULL,
+	[IdMenu] [int] NOT NULL,
+	[Activa] [int] NULL,
+	[imagen] [varchar](250) NULL,
+ CONSTRAINT [PK_SubMenu] PRIMARY KEY CLUSTERED 
+(
+	[IdMenu] ASC,
+	[IdSubMenu] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[Usuario]    Script Date: 06/01/2014 13:20:58 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[Usuario](
+	[Id] [int] NOT NULL,
+	[Nombre] [varchar](20) NOT NULL,
+	[PrimerApellido] [varchar](30) NULL,
+	[SegundoApellido] [varchar](30) NULL,
+	[Direccion] [varchar](20) NULL,
+	[Telefono] [varchar](30) NULL,
+	[Clave] [varchar](30) NULL,
+ CONSTRAINT [PK_Usuario] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[Menu]    Script Date: 06/01/2014 13:20:58 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[Menu](
+	[IdMenu] [int] NOT NULL,
+	[Nombre] [varchar](100) NOT NULL,
+	[Activa] [int] NULL,
+ CONSTRAINT [PK_IdMenu] PRIMARY KEY CLUSTERED 
+(
+	[IdMenu] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[Familia]    Script Date: 06/01/2014 13:20:58 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[Familia](
+	[IdFamilia] [int] NOT NULL,
+	[NombrePadre] [varchar](20) NOT NULL,
+	[PrimerApellidoPadre] [varchar](30) NOT NULL,
+	[SegundoApellidoPadre] [varchar](30) NOT NULL,
+	[TelefonoPadre] [varchar](20) NOT NULL,
+	[NombreMadre] [varchar](20) NOT NULL,
+	[PrimerApellidoMadre] [varchar](30) NOT NULL,
+	[SegundoApellidoMadre] [varchar](30) NOT NULL,
+	[TelefonoMadre] [varchar](20) NOT NULL,
+	[Direccion] [varchar](100) NOT NULL,
+	[Estado] [varchar](10) NOT NULL,
+ CONSTRAINT [PK_IdFamilia] PRIMARY KEY CLUSTERED 
+(
+	[IdFamilia] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[Estudiante]    Script Date: 06/01/2014 13:20:58 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[Estudiante](
+	[IdEstudiante] [int] NOT NULL,
+	[NombreEstudiante] [varchar](20) NOT NULL,
+	[PrimerApellidoEstudiante] [varchar](30) NULL,
+	[SegundoApellidoEstudiante] [varchar](30) NULL,
+	[NombrePadre] [varchar](20) NULL,
+	[PrimerApellidoPadre] [varchar](30) NULL,
+	[SegundoApellidoPadre] [varchar](30) NULL,
+	[NombreMadre] [varchar](20) NULL,
+	[PrimerApellidoMadre] [varchar](30) NULL,
+	[SegundoApellidoMadre] [varchar](30) NULL,
+	[GradoEstudiante] [varchar](30) NULL,
+	[Estado] [varchar](10) NOT NULL,
+	[Direccion] [varchar](100) NULL,
+	[Telefono] [varchar](15) NULL,
+	[FamiliaId] [int] NULL,
+ CONSTRAINT [PK_IdEstudiante] PRIMARY KEY CLUSTERED 
+(
+	[IdEstudiante] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  StoredProcedure [dbo].[proc_SubMenuUpdate]    Script Date: 06/01/2014 13:21:08 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[proc_SubMenuUpdate]
+(
+	@IdSubMenu int, 
+	@Nombre varchar(100), 
+	@IdMenu int, 
+	@Activa int = NULL, 
+	@Imagen varchar(250) = NULL
+)
+AS
+BEGIN
+
+	SET NOCOUNT OFF
+	DECLARE @Err int
+	
+	
+	
+
+	UPDATE [SubMenu]
+	SET
+		[Nombre] = @Nombre, 
+		[Activa] = @Activa, 
+		[imagen] = @Imagen
+	WHERE
+		([IdMenu] = @IdMenu) AND 
+		([IdSubMenu] = @IdSubMenu)
+
+	SET @Err = @@Error
+
+
+	RETURN @Err
+END
+GO
+/****** Object:  StoredProcedure [dbo].[proc_SubMenuLoadByPrimaryKey]    Script Date: 06/01/2014 13:21:08 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[proc_SubMenuLoadByPrimaryKey]
+(
+	@IdMenu int, 
+	@IdSubMenu int
+)
+AS
+BEGIN
+	SET NOCOUNT ON
+	DECLARE @Err int
+
+	SELECT
+		[IdSubMenu], 
+		[Nombre], 
+		[IdMenu], 
+		[Activa], 
+		[imagen]
+	FROM [dbo].[SubMenu]
+	WHERE
+		([IdMenu] = @IdMenu) AND 
+		([IdSubMenu] = @IdSubMenu)
+
+	SET @Err = @@Error
+
+	RETURN @Err
+END
+GO
+/****** Object:  StoredProcedure [dbo].[proc_SubMenuLoadAll]    Script Date: 06/01/2014 13:21:08 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[proc_SubMenuLoadAll]
+AS
+BEGIN
+
+	SET NOCOUNT ON
+	DECLARE @Err int
+
+	SELECT
+		[IdSubMenu], 
+		[Nombre], 
+		[IdMenu], 
+		[Activa], 
+		[imagen]
+	FROM [dbo].[SubMenu]
+
+	SET @Err = @@Error
+
+	RETURN @Err
+END
+GO
+/****** Object:  StoredProcedure [dbo].[proc_SubMenuInsert]    Script Date: 06/01/2014 13:21:08 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[proc_SubMenuInsert]
+(
+	@IdSubMenu int, 
+	@Nombre varchar(100), 
+	@IdMenu int, 
+	@Activa int = NULL, 
+	@Imagen varchar(250) = NULL
+)
+AS
+BEGIN
+
+	SET NOCOUNT OFF
+	DECLARE @Err int
+
+	
+	
+	INSERT
+	INTO [SubMenu]
+	(
+		[IdSubMenu], 
+		[Nombre], 
+		[IdMenu], 
+		[Activa], 
+		[imagen]
+	)
+	
+	VALUES
+	(
+		@IdSubMenu, 
+		@Nombre, 
+		@IdMenu, 
+		@Activa, 
+		@Imagen
+	)
+
+
+	SET @Err = @@Error
+
+
+
+	
+
+	RETURN @Err
+END
+GO
+/****** Object:  StoredProcedure [dbo].[proc_SubMenuDelete]    Script Date: 06/01/2014 13:21:08 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[proc_SubMenuDelete]
+(
+	@IdSubMenu int, 
+	@IdMenu int
+)
+AS
+BEGIN
+
+	SET NOCOUNT OFF
+	DECLARE @Err int
+
+	DELETE
+	FROM [dbo].[SubMenu]
+	WHERE
+		([IdMenu] = @IdMenu) AND 
+		([IdSubMenu] = @IdSubMenu)
+
+	SET @Err = @@Error
+
+	RETURN @Err
+END
+GO
+/****** Object:  StoredProcedure [dbo].[proc_MenuUpdate]    Script Date: 06/01/2014 13:21:08 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[proc_MenuUpdate]
+(
+	@IdMenu int, 
+	@Nombre varchar(100), 
+	@Activa int = NULL
+)
+AS
+BEGIN
+
+	SET NOCOUNT OFF
+	DECLARE @Err int
+	
+	
+	
+
+	UPDATE [Menu]
+	SET
+		[Nombre] = @Nombre, 
+		[Activa] = @Activa
+	WHERE
+		([IdMenu] = @IdMenu)
+
+	SET @Err = @@Error
+
+
+	RETURN @Err
+END
+GO
+/****** Object:  StoredProcedure [dbo].[proc_MenuLoadByPrimaryKey]    Script Date: 06/01/2014 13:21:08 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[proc_MenuLoadByPrimaryKey]
+(
+	@IdMenu int
+)
+AS
+BEGIN
+	SET NOCOUNT ON
+	DECLARE @Err int
+
+	SELECT
+		[IdMenu], 
+		[Nombre], 
+		[Activa]
+	FROM [dbo].[Menu]
+	WHERE
+		([IdMenu] = @IdMenu)
+
+	SET @Err = @@Error
+
+	RETURN @Err
+END
+GO
+/****** Object:  StoredProcedure [dbo].[proc_MenuLoadAll]    Script Date: 06/01/2014 13:21:08 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[proc_MenuLoadAll]
+AS
+BEGIN
+
+	SET NOCOUNT ON
+	DECLARE @Err int
+
+	SELECT
+		[IdMenu], 
+		[Nombre], 
+		[Activa]
+	FROM [dbo].[Menu]
+
+	SET @Err = @@Error
+
+	RETURN @Err
+END
+GO
+/****** Object:  StoredProcedure [dbo].[proc_MenuInsert]    Script Date: 06/01/2014 13:21:08 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[proc_MenuInsert]
+(
+	@IdMenu int, 
+	@Nombre varchar(100), 
+	@Activa int = NULL
+)
+AS
+BEGIN
+
+	SET NOCOUNT OFF
+	DECLARE @Err int
+
+	
+	
+	INSERT
+	INTO [Menu]
+	(
+		[IdMenu], 
+		[Nombre], 
+		[Activa]
+	)
+	
+	VALUES
+	(
+		@IdMenu, 
+		@Nombre, 
+		@Activa
+	)
+
+
+	SET @Err = @@Error
+
+
+
+	
+
+	RETURN @Err
+END
+GO
+/****** Object:  StoredProcedure [dbo].[proc_MenuDelete]    Script Date: 06/01/2014 13:21:08 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[proc_MenuDelete]
+(
+	@IdMenu int
+)
+AS
+BEGIN
+
+	SET NOCOUNT OFF
+	DECLARE @Err int
+
+	DELETE
+	FROM [dbo].[Menu]
+	WHERE
+		([IdMenu] = @IdMenu)
+
+	SET @Err = @@Error
+
+	RETURN @Err
+END
+GO
+/****** Object:  StoredProcedure [dbo].[proc_FamiliaUpdate]    Script Date: 06/01/2014 13:21:08 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[proc_FamiliaUpdate]
+(
+	@IdFamilia int, 
+	@NombrePadre varchar(20), 
+	@PrimerApellidoPadre varchar(30), 
+	@SegundoApellidoPadre varchar(30), 
+	@TelefonoPadre varchar(20), 
+	@NombreMadre varchar(20), 
+	@PrimerApellidoMadre varchar(30), 
+	@SegundoApellidoMadre varchar(30), 
+	@TelefonoMadre varchar(20), 
+	@Direccion varchar(100), 
+	@Estado varchar(10)
+)
+AS
+BEGIN
+
+	SET NOCOUNT OFF
+	DECLARE @Err int
+	
+	
+	
+
+	UPDATE [Familia]
+	SET
+		[NombrePadre] = @NombrePadre, 
+		[PrimerApellidoPadre] = @PrimerApellidoPadre, 
+		[SegundoApellidoPadre] = @SegundoApellidoPadre, 
+		[TelefonoPadre] = @TelefonoPadre, 
+		[NombreMadre] = @NombreMadre, 
+		[PrimerApellidoMadre] = @PrimerApellidoMadre, 
+		[SegundoApellidoMadre] = @SegundoApellidoMadre, 
+		[TelefonoMadre] = @TelefonoMadre, 
+		[Direccion] = @Direccion, 
+		[Estado] = @Estado
+	WHERE
+		([IdFamilia] = @IdFamilia)
+
+	SET @Err = @@Error
+
+
+	RETURN @Err
+END
+GO
+/****** Object:  StoredProcedure [dbo].[proc_FamiliaLoadByPrimaryKey]    Script Date: 06/01/2014 13:21:09 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[proc_FamiliaLoadByPrimaryKey]
+(
+	@IdFamilia int
+)
+AS
+BEGIN
+	SET NOCOUNT ON
+	DECLARE @Err int
+
+	SELECT
+		[IdFamilia], 
+		[NombrePadre], 
+		[PrimerApellidoPadre], 
+		[SegundoApellidoPadre], 
+		[TelefonoPadre], 
+		[NombreMadre], 
+		[PrimerApellidoMadre], 
+		[SegundoApellidoMadre], 
+		[TelefonoMadre], 
+		[Direccion], 
+		[Estado]
+	FROM [dbo].[Familia]
+	WHERE
+		([IdFamilia] = @IdFamilia)
+
+	SET @Err = @@Error
+
+	RETURN @Err
+END
+GO
+/****** Object:  StoredProcedure [dbo].[proc_FamiliaLoadAll]    Script Date: 06/01/2014 13:21:09 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[proc_FamiliaLoadAll]
+AS
+BEGIN
+
+	SET NOCOUNT ON
+	DECLARE @Err int
+
+	SELECT
+		[IdFamilia], 
+		[NombrePadre], 
+		[PrimerApellidoPadre], 
+		[SegundoApellidoPadre], 
+		[TelefonoPadre], 
+		[NombreMadre], 
+		[PrimerApellidoMadre], 
+		[SegundoApellidoMadre], 
+		[TelefonoMadre], 
+		[Direccion], 
+		[Estado]
+	FROM [dbo].[Familia]
+
+	SET @Err = @@Error
+
+	RETURN @Err
+END
+GO
+/****** Object:  StoredProcedure [dbo].[proc_FamiliaInsert]    Script Date: 06/01/2014 13:21:09 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[proc_FamiliaInsert]
+(
+	@IdFamilia int, 
+	@NombrePadre varchar(20), 
+	@PrimerApellidoPadre varchar(30), 
+	@SegundoApellidoPadre varchar(30), 
+	@TelefonoPadre varchar(20), 
+	@NombreMadre varchar(20), 
+	@PrimerApellidoMadre varchar(30), 
+	@SegundoApellidoMadre varchar(30), 
+	@TelefonoMadre varchar(20), 
+	@Direccion varchar(100), 
+	@Estado varchar(10)
+)
+AS
+BEGIN
+
+	SET NOCOUNT OFF
+	DECLARE @Err int
+
+	
+	
+	INSERT
+	INTO [Familia]
+	(
+		[IdFamilia], 
+		[NombrePadre], 
+		[PrimerApellidoPadre], 
+		[SegundoApellidoPadre], 
+		[TelefonoPadre], 
+		[NombreMadre], 
+		[PrimerApellidoMadre], 
+		[SegundoApellidoMadre], 
+		[TelefonoMadre], 
+		[Direccion], 
+		[Estado]
+	)
+	
+	VALUES
+	(
+		@IdFamilia, 
+		@NombrePadre, 
+		@PrimerApellidoPadre, 
+		@SegundoApellidoPadre, 
+		@TelefonoPadre, 
+		@NombreMadre, 
+		@PrimerApellidoMadre, 
+		@SegundoApellidoMadre, 
+		@TelefonoMadre, 
+		@Direccion, 
+		@Estado
+	)
+
+
+	SET @Err = @@Error
+
+
+
+	
+
+	RETURN @Err
+END
+GO
+/****** Object:  StoredProcedure [dbo].[proc_FamiliaDelete]    Script Date: 06/01/2014 13:21:09 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[proc_FamiliaDelete]
+(
+	@IdFamilia int
+)
+AS
+BEGIN
+
+	SET NOCOUNT OFF
+	DECLARE @Err int
+
+	DELETE
+	FROM [dbo].[Familia]
+	WHERE
+		([IdFamilia] = @IdFamilia)
+
+	SET @Err = @@Error
+
+	RETURN @Err
+END
+GO
+/****** Object:  StoredProcedure [dbo].[validarUsuario]    Script Date: 06/01/2014 13:21:09 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[validarUsuario]
+(
+	@Id int,
+	@Clave varchar(30)
+)
+AS
+BEGIN
+	SET NOCOUNT ON
+	DECLARE @Err int
+
+	SELECT 		
+		[Nombre], 
+		[PrimerApellido], 
+		[SegundoApellido]
+		
+	FROM [dbo].[Usuario]
+	WHERE
+	([Id] = @Id) AND ([Clave] = @Clave)
+	SET @Err = @@Error
+
+	RETURN @Err
+END
+GO
+/****** Object:  StoredProcedure [dbo].[ultimoUsuario]    Script Date: 06/01/2014 13:21:09 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[ultimoUsuario]
+
+AS
+BEGIN
+	SET NOCOUNT ON
+	DECLARE @Err int
+
+	SELECT Id
+	FROM [dbo].[Usuario]
+	ORDER BY Id DESC
+
+	SET @Err = @@Error
+
+	RETURN @Err
+END
+GO
+/****** Object:  StoredProcedure [dbo].[proc_UsuarioUpdate]    Script Date: 06/01/2014 13:21:09 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[proc_UsuarioUpdate]
+(
+	@Id int, 
+	@Nombre varchar(20), 
+	@PrimerApellido varchar(30) = NULL, 
+	@SegundoApellido varchar(30) = NULL, 
+	@Direccion varchar(20) = NULL, 
+	@Telefono varchar(30) = NULL, 
+	@Clave varchar(30)
+)
+AS
+BEGIN
+
+	SET NOCOUNT OFF
+	DECLARE @Err int
+	
+	
+	
+
+	UPDATE [Usuario]
+	SET
+		[Nombre] = @Nombre, 
+		[PrimerApellido] = @PrimerApellido, 
+		[SegundoApellido] = @SegundoApellido, 
+		[Direccion] = @Direccion, 
+		[Telefono] = @Telefono, 
+		[Clave] = @Clave
+	WHERE
+		([Id] = @Id)
+
+	SET @Err = @@Error
+
+
+	RETURN @Err
+END
+GO
+/****** Object:  StoredProcedure [dbo].[proc_UsuarioLoadByPrimaryKey]    Script Date: 06/01/2014 13:21:09 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[proc_UsuarioLoadByPrimaryKey]
+(
+	@Id int
+)
+AS
+BEGIN
+	SET NOCOUNT ON
+	DECLARE @Err int
+
+	SELECT
+		[Id], 
+		[Nombre], 
+		[PrimerApellido], 
+		[SegundoApellido], 
+		[Direccion], 
+		[Telefono], 
+		[Clave]
+	FROM [dbo].[Usuario]
+	WHERE
+		([Id] = @Id)
+
+	SET @Err = @@Error
+
+	RETURN @Err
+END
+GO
+/****** Object:  StoredProcedure [dbo].[proc_UsuarioLoadAll]    Script Date: 06/01/2014 13:21:09 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[proc_UsuarioLoadAll]
+AS
+BEGIN
+
+	SET NOCOUNT ON
+	DECLARE @Err int
+
+	SELECT
+		[Id], 
+		[Nombre], 
+		[PrimerApellido], 
+		[SegundoApellido], 
+		[Direccion], 
+		[Telefono], 
+		[Clave]
+	FROM [dbo].[Usuario]
+
+	SET @Err = @@Error
+
+	RETURN @Err
+END
+GO
+/****** Object:  StoredProcedure [dbo].[proc_UsuarioInsert]    Script Date: 06/01/2014 13:21:09 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[proc_UsuarioInsert]
+(
+	@Id int, 
+	@Nombre varchar(20), 
+	@PrimerApellido varchar(30) = NULL, 
+	@SegundoApellido varchar(30) = NULL, 
+	@Direccion varchar(20) = NULL, 
+	@Telefono varchar(30) = NULL, 
+	@Clave varchar(30)
+)
+AS
+BEGIN
+
+	SET NOCOUNT OFF
+	DECLARE @Err int
+
+	
+	
+	INSERT
+	INTO [Usuario]
+	(
+		[Id], 
+		[Nombre], 
+		[PrimerApellido], 
+		[SegundoApellido], 
+		[Direccion], 
+		[Telefono], 
+		[Clave]
+	)
+	
+	VALUES
+	(
+		@Id, 
+		@Nombre, 
+		@PrimerApellido, 
+		@SegundoApellido, 
+		@Direccion, 
+		@Telefono, 
+		@Clave
+	)
+
+
+	SET @Err = @@Error
+
+
+
+	
+
+	RETURN @Err
+END
+GO
+/****** Object:  StoredProcedure [dbo].[proc_UsuarioDelete]    Script Date: 06/01/2014 13:21:09 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[proc_UsuarioDelete]
+(
+	@Id int
+)
+AS
+BEGIN
+
+	SET NOCOUNT OFF
+	DECLARE @Err int
+
+	DELETE
+	FROM [dbo].[Usuario]
+	WHERE
+		([Id] = @Id)
+
+	SET @Err = @@Error
+
+	RETURN @Err
+END
+GO
+/****** Object:  StoredProcedure [dbo].[proc_UltimoEstudiante]    Script Date: 06/01/2014 13:21:09 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[proc_UltimoEstudiante]
+
+AS
+BEGIN
+	SET NOCOUNT ON
+	DECLARE @Err int
+
+	SELECT
+		[IdEstudiante]
+
+	FROM [dbo].[Estudiante]
+	ORDER BY IdEstudiante DESC
+
+	SET @Err = @@Error
+
+	RETURN @Err
+END
+GO
+/****** Object:  StoredProcedure [dbo].[proc_EstudianteUpdate]    Script Date: 06/01/2014 13:21:09 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[proc_EstudianteUpdate]
+(
+	@IdEstudiante int, 
+	@NombreEstudiante varchar(20), 
+	@PrimerApellidoEstudiante varchar(30) = NULL, 
+	@SegundoApellidoEstudiante varchar(30) = NULL, 
+	@NombrePadre varchar(20) = NULL, 
+	@PrimerApellidoPadre varchar(30) = NULL, 
+	@SegundoApellidoPadre varchar(30) = NULL, 
+	@NombreMadre varchar(20) = NULL, 
+	@PrimerApellidoMadre varchar(30) = NULL, 
+	@SegundoApellidoMadre varchar(30) = NULL, 
+	@GradoEstudiante varchar(30) = NULL, 
+	@Estado varchar(10), 
+	@Direccion varchar(100) = NULL, 
+	@Telefono varchar(15) = NULL
+)
+AS
+BEGIN
+
+	SET NOCOUNT OFF
+	DECLARE @Err int
+	
+	
+	
+
+	UPDATE [Estudiante]
+	SET
+		[NombreEstudiante] = @NombreEstudiante, 
+		[PrimerApellidoEstudiante] = @PrimerApellidoEstudiante, 
+		[SegundoApellidoEstudiante] = @SegundoApellidoEstudiante, 
+		[NombrePadre] = @NombrePadre, 
+		[PrimerApellidoPadre] = @PrimerApellidoPadre, 
+		[SegundoApellidoPadre] = @SegundoApellidoPadre, 
+		[NombreMadre] = @NombreMadre, 
+		[PrimerApellidoMadre] = @PrimerApellidoMadre, 
+		[SegundoApellidoMadre] = @SegundoApellidoMadre, 
+		[GradoEstudiante] = @GradoEstudiante, 
+		[Estado] = @Estado, 
+		[Direccion] = @Direccion, 
+		[Telefono] = @Telefono
+	WHERE
+		([IdEstudiante] = @IdEstudiante)
+
+	SET @Err = @@Error
+
+
+	RETURN @Err
+END
+GO
+/****** Object:  StoredProcedure [dbo].[proc_EstudianteLoadByPrimaryKey]    Script Date: 06/01/2014 13:21:09 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[proc_EstudianteLoadByPrimaryKey]
+(
+	@IdEstudiante int
+)
+AS
+BEGIN
+	SET NOCOUNT ON
+	DECLARE @Err int
+
+	SELECT
+		[IdEstudiante], 
+		[NombreEstudiante], 
+		[PrimerApellidoEstudiante], 
+		[SegundoApellidoEstudiante], 
+		[NombrePadre], 
+		[PrimerApellidoPadre], 
+		[SegundoApellidoPadre], 
+		[NombreMadre], 
+		[PrimerApellidoMadre], 
+		[SegundoApellidoMadre], 
+		[GradoEstudiante], 
+		[Estado], 
+		[Direccion], 
+		[Telefono]
+	FROM [dbo].[Estudiante]
+	WHERE
+		([IdEstudiante] = @IdEstudiante)
+
+	SET @Err = @@Error
+
+	RETURN @Err
+END
+GO
+/****** Object:  StoredProcedure [dbo].[proc_EstudianteLoadAll]    Script Date: 06/01/2014 13:21:09 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[proc_EstudianteLoadAll]
+AS
+BEGIN
+
+	SET NOCOUNT ON
+	DECLARE @Err int
+
+	SELECT
+		[IdEstudiante], 
+		[NombreEstudiante], 
+		[PrimerApellidoEstudiante], 
+		[SegundoApellidoEstudiante], 
+		[NombrePadre], 
+		[PrimerApellidoPadre], 
+		[SegundoApellidoPadre], 
+		[NombreMadre], 
+		[PrimerApellidoMadre], 
+		[SegundoApellidoMadre], 
+		[GradoEstudiante], 
+		[Estado], 
+		[Direccion], 
+		[Telefono]
+	FROM [dbo].[Estudiante]
+
+	SET @Err = @@Error
+
+	RETURN @Err
+END
+GO
+/****** Object:  StoredProcedure [dbo].[proc_EstudianteInsert]    Script Date: 06/01/2014 13:21:09 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[proc_EstudianteInsert]
+(
+	@IdEstudiante int, 
+	@NombreEstudiante varchar(20), 
+	@PrimerApellidoEstudiante varchar(30) = NULL, 
+	@SegundoApellidoEstudiante varchar(30) = NULL, 
+	@NombrePadre varchar(20) = NULL, 
+	@PrimerApellidoPadre varchar(30) = NULL, 
+	@SegundoApellidoPadre varchar(30) = NULL, 
+	@NombreMadre varchar(20) = NULL, 
+	@PrimerApellidoMadre varchar(30) = NULL, 
+	@SegundoApellidoMadre varchar(30) = NULL, 
+	@GradoEstudiante varchar(30) = NULL, 
+	@Estado varchar(10), 
+	@Direccion varchar(100) = NULL, 
+	@Telefono varchar(15) = NULL
+)
+AS
+BEGIN
+
+	SET NOCOUNT OFF
+	DECLARE @Err int
+
+	
+	
+	INSERT
+	INTO [Estudiante]
+	(
+		[IdEstudiante], 
+		[NombreEstudiante], 
+		[PrimerApellidoEstudiante], 
+		[SegundoApellidoEstudiante], 
+		[NombrePadre], 
+		[PrimerApellidoPadre], 
+		[SegundoApellidoPadre], 
+		[NombreMadre], 
+		[PrimerApellidoMadre], 
+		[SegundoApellidoMadre], 
+		[GradoEstudiante], 
+		[Estado], 
+		[Direccion], 
+		[Telefono]
+	)
+	
+	VALUES
+	(
+		@IdEstudiante, 
+		@NombreEstudiante, 
+		@PrimerApellidoEstudiante, 
+		@SegundoApellidoEstudiante, 
+		@NombrePadre, 
+		@PrimerApellidoPadre, 
+		@SegundoApellidoPadre, 
+		@NombreMadre, 
+		@PrimerApellidoMadre, 
+		@SegundoApellidoMadre, 
+		@GradoEstudiante, 
+		@Estado, 
+		@Direccion, 
+		@Telefono
+	)
+
+
+	SET @Err = @@Error
+
+
+
+	
+
+	RETURN @Err
+END
+GO
+/****** Object:  StoredProcedure [dbo].[proc_EstudianteDelete]    Script Date: 06/01/2014 13:21:09 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[proc_EstudianteDelete]
+(
+	@IdEstudiante int
+)
+AS
+BEGIN
+
+	SET NOCOUNT OFF
+	DECLARE @Err int
+
+	DELETE
+	FROM [dbo].[Estudiante]
+	WHERE
+		([IdEstudiante] = @IdEstudiante)
+
+	SET @Err = @@Error
+
+	RETURN @Err
+END
+GO
+/****** Object:  ForeignKey [FK_familiaId]    Script Date: 06/01/2014 13:20:58 ******/
+ALTER TABLE [dbo].[Estudiante]  WITH CHECK ADD  CONSTRAINT [FK_familiaId] FOREIGN KEY([FamiliaId])
+REFERENCES [dbo].[Familia] ([IdFamilia])
+GO
+ALTER TABLE [dbo].[Estudiante] CHECK CONSTRAINT [FK_familiaId]
+GO

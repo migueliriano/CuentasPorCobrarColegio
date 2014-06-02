@@ -1,0 +1,53 @@
+c:\users\intellisys\documents\visual studio 2012\Projects\CuentasCobrarColegio\Presentacion\bin\Debug\Presentacion.exe.config
+c:\users\intellisys\documents\visual studio 2012\Projects\CuentasCobrarColegio\Presentacion\bin\Debug\Presentacion.exe
+c:\users\intellisys\documents\visual studio 2012\Projects\CuentasCobrarColegio\Presentacion\bin\Debug\Presentacion.pdb
+c:\users\intellisys\documents\visual studio 2012\Projects\CuentasCobrarColegio\Presentacion\obj\Debug\Presentacion.csprojResolveAssemblyReference.cache
+c:\users\intellisys\documents\visual studio 2012\Projects\CuentasCobrarColegio\Presentacion\obj\Debug\Presentacion.FrmPrincipal.resources
+c:\users\intellisys\documents\visual studio 2012\Projects\CuentasCobrarColegio\Presentacion\obj\Debug\Presentacion.Properties.Resources.resources
+c:\users\intellisys\documents\visual studio 2012\Projects\CuentasCobrarColegio\Presentacion\obj\Debug\Presentacion.csproj.GenerateResource.Cache
+c:\users\intellisys\documents\visual studio 2012\Projects\CuentasCobrarColegio\Presentacion\obj\Debug\Presentacion.exe
+c:\users\intellisys\documents\visual studio 2012\Projects\CuentasCobrarColegio\Presentacion\obj\Debug\Presentacion.pdb
+C:\Users\Dell User\Documents\Visual Studio 2012\Projects\CuentasCobrarColegio\Presentacion\bin\Debug\Presentacion.exe.config
+C:\Users\Dell User\Documents\Visual Studio 2012\Projects\CuentasCobrarColegio\Presentacion\obj\Debug\Presentacion.exe
+C:\Users\Dell User\Documents\Visual Studio 2012\Projects\CuentasCobrarColegio\Presentacion\obj\Debug\Presentacion.pdb
+C:\Users\Chalie\Documents\Visual Studio 2012\Projects\CuentasCobrarColegio\Presentacion\bin\Debug\Presentacion.exe.config
+C:\Users\Chalie\Documents\Visual Studio 2012\Projects\CuentasCobrarColegio\Presentacion\obj\Debug\Presentacion.exe
+C:\Users\Chalie\Documents\Visual Studio 2012\Projects\CuentasCobrarColegio\Presentacion\obj\Debug\Presentacion.pdb
+C:\Users\Chalie\Documents\Visual Studio 2012\Projects\CuentasCobrarColegio\Presentacion\bin\Debug\Presentacion.exe
+C:\Users\Chalie\Documents\Visual Studio 2012\Projects\CuentasCobrarColegio\Presentacion\bin\Debug\Presentacion.pdb
+C:\Users\Chalie\Documents\Visual Studio 2012\Projects\CuentasCobrarColegio\Presentacion\bin\Debug\Entidades.dll
+C:\Users\Chalie\Documents\Visual Studio 2012\Projects\CuentasCobrarColegio\Presentacion\bin\Debug\Logica.dll
+C:\Users\Chalie\Documents\Visual Studio 2012\Projects\CuentasCobrarColegio\Presentacion\bin\Debug\Datos.dll
+C:\Users\Chalie\Documents\Visual Studio 2012\Projects\CuentasCobrarColegio\Presentacion\bin\Debug\Entidades.pdb
+C:\Users\Chalie\Documents\Visual Studio 2012\Projects\CuentasCobrarColegio\Presentacion\bin\Debug\Logica.pdb
+C:\Users\Chalie\Documents\Visual Studio 2012\Projects\CuentasCobrarColegio\Presentacion\bin\Debug\Datos.pdb
+C:\Users\Chalie\Documents\Visual Studio 2012\Projects\CuentasCobrarColegio\Presentacion\obj\Debug\Presentacion.csprojResolveAssemblyReference.cache
+C:\Users\Chalie\Documents\Visual Studio 2012\Projects\CuentasCobrarColegio\Presentacion\obj\Debug\Presentacion.FrmLogin.resources
+C:\Users\Chalie\Documents\Visual Studio 2012\Projects\CuentasCobrarColegio\Presentacion\obj\Debug\Presentacion.FrmPrincipal.resources
+C:\Users\Chalie\Documents\Visual Studio 2012\Projects\CuentasCobrarColegio\Presentacion\obj\Debug\Presentacion.Properties.Resources.resources
+C:\Users\Chalie\Documents\Visual Studio 2012\Projects\CuentasCobrarColegio\Presentacion\obj\Debug\Presentacion.csproj.GenerateResource.Cache
+C:\Users\Chalie\Documents\Visual Studio 2012\Projects\CuentasCobrarColegio\Presentacion\obj\Debug\Presentacion.FrmMantenimientoEstudiante.resources
+C:\Users\Chalie\Documents\Visual Studio 2012\Projects\CuentasCobrarColegio\Presentacion\obj\Debug\Presentacion.FrmMantenimientoUsuario.resources
+C:\Users\Chalie\Documents\Visual Studio 2012\Projects\CuentasCobrarColegio\Presentacion\obj\Debug\Presentacion.FrmMantenimientoFamilia.resources
+C:\Users\Chalie\Desktop\CuentasCobrarColegio2\Presentacion\bin\Debug\Presentacion.exe.config
+C:\Users\Chalie\Desktop\CuentasCobrarColegio2\Presentacion\obj\Debug\Presentacion.exe
+C:\Users\Chalie\Desktop\CuentasCobrarColegio2\Presentacion\obj\Debug\Presentacion.pdb
+C:\Users\miguel\Desktop\CuentasCobrarColegio2\Presentacion\bin\Debug\Presentacion.exe.config
+C:\Users\miguel\Desktop\CuentasCobrarColegio2\Presentacion\obj\Debug\Presentacion.exe
+C:\Users\miguel\Desktop\CuentasCobrarColegio2\Presentacion\obj\Debug\Presentacion.pdb
+C:\Users\miguel\Desktop\CuentasCobrarColegio2\Presentacion\obj\Debug\Presentacion.csprojResolveAssemblyReference.cache
+C:\Users\miguel\Desktop\CuentasCobrarColegio2\Presentacion\obj\Debug\Presentacion.FrmLogin.resources
+C:\Users\miguel\Desktop\CuentasCobrarColegio2\Presentacion\obj\Debug\Presentacion.FrmMantenimientoEstudiante.resources
+C:\Users\miguel\Desktop\CuentasCobrarColegio2\Presentacion\obj\Debug\Presentacion.FrmMantenimientoFamilia.resources
+C:\Users\miguel\Desktop\CuentasCobrarColegio2\Presentacion\obj\Debug\Presentacion.FrmMantenimientoUsuario.resources
+C:\Users\miguel\Desktop\CuentasCobrarColegio2\Presentacion\obj\Debug\Presentacion.FrmPrincipal.resources
+C:\Users\miguel\Desktop\CuentasCobrarColegio2\Presentacion\obj\Debug\Presentacion.Properties.Resources.resources
+C:\Users\miguel\Desktop\CuentasCobrarColegio2\Presentacion\obj\Debug\Presentacion.csproj.GenerateResource.Cache
+C:\Users\miguel\Desktop\CuentasCobrarColegio2\Presentacion\bin\Debug\Presentacion.exe
+C:\Users\miguel\Desktop\CuentasCobrarColegio2\Presentacion\bin\Debug\Presentacion.pdb
+C:\Users\miguel\Desktop\CuentasCobrarColegio2\Presentacion\bin\Debug\Entidades.dll
+C:\Users\miguel\Desktop\CuentasCobrarColegio2\Presentacion\bin\Debug\Logica.dll
+C:\Users\miguel\Desktop\CuentasCobrarColegio2\Presentacion\bin\Debug\Datos.dll
+C:\Users\miguel\Desktop\CuentasCobrarColegio2\Presentacion\bin\Debug\Entidades.pdb
+C:\Users\miguel\Desktop\CuentasCobrarColegio2\Presentacion\bin\Debug\Logica.pdb
+C:\Users\miguel\Desktop\CuentasCobrarColegio2\Presentacion\bin\Debug\Datos.pdb

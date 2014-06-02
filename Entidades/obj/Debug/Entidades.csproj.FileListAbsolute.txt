@@ -1,0 +1,10 @@
+C:\Users\Chalie\Documents\Visual Studio 2012\Projects\CuentasCobrarColegio\Entidades\bin\Debug\Entidades.dll
+C:\Users\Chalie\Documents\Visual Studio 2012\Projects\CuentasCobrarColegio\Entidades\bin\Debug\Entidades.pdb
+C:\Users\Chalie\Documents\Visual Studio 2012\Projects\CuentasCobrarColegio\Entidades\obj\Debug\Entidades.csprojResolveAssemblyReference.cache
+C:\Users\Chalie\Documents\Visual Studio 2012\Projects\CuentasCobrarColegio\Entidades\obj\Debug\Entidades.dll
+C:\Users\Chalie\Documents\Visual Studio 2012\Projects\CuentasCobrarColegio\Entidades\obj\Debug\Entidades.pdb
+C:\Users\miguel\Desktop\CuentasCobrarColegio2\Entidades\bin\Debug\Entidades.dll
+C:\Users\miguel\Desktop\CuentasCobrarColegio2\Entidades\bin\Debug\Entidades.pdb
+C:\Users\miguel\Desktop\CuentasCobrarColegio2\Entidades\obj\Debug\Entidades.csprojResolveAssemblyReference.cache
+C:\Users\miguel\Desktop\CuentasCobrarColegio2\Entidades\obj\Debug\Entidades.dll
+C:\Users\miguel\Desktop\CuentasCobrarColegio2\Entidades\obj\Debug\Entidades.pdb

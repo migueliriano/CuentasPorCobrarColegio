@@ -1,0 +1,18 @@
+C:\Users\Chalie\Documents\Visual Studio 2012\Projects\CuentasCobrarColegio\Logica\bin\Debug\Logica.dll
+C:\Users\Chalie\Documents\Visual Studio 2012\Projects\CuentasCobrarColegio\Logica\bin\Debug\Logica.pdb
+C:\Users\Chalie\Documents\Visual Studio 2012\Projects\CuentasCobrarColegio\Logica\bin\Debug\Datos.dll
+C:\Users\Chalie\Documents\Visual Studio 2012\Projects\CuentasCobrarColegio\Logica\bin\Debug\Entidades.dll
+C:\Users\Chalie\Documents\Visual Studio 2012\Projects\CuentasCobrarColegio\Logica\bin\Debug\Datos.pdb
+C:\Users\Chalie\Documents\Visual Studio 2012\Projects\CuentasCobrarColegio\Logica\bin\Debug\Entidades.pdb
+C:\Users\Chalie\Documents\Visual Studio 2012\Projects\CuentasCobrarColegio\Logica\obj\Debug\Logica.csprojResolveAssemblyReference.cache
+C:\Users\Chalie\Documents\Visual Studio 2012\Projects\CuentasCobrarColegio\Logica\obj\Debug\Logica.dll
+C:\Users\Chalie\Documents\Visual Studio 2012\Projects\CuentasCobrarColegio\Logica\obj\Debug\Logica.pdb
+C:\Users\miguel\Desktop\CuentasCobrarColegio2\Logica\bin\Debug\Logica.dll
+C:\Users\miguel\Desktop\CuentasCobrarColegio2\Logica\bin\Debug\Logica.pdb
+C:\Users\miguel\Desktop\CuentasCobrarColegio2\Logica\bin\Debug\Datos.dll
+C:\Users\miguel\Desktop\CuentasCobrarColegio2\Logica\bin\Debug\Entidades.dll
+C:\Users\miguel\Desktop\CuentasCobrarColegio2\Logica\bin\Debug\Datos.pdb
+C:\Users\miguel\Desktop\CuentasCobrarColegio2\Logica\bin\Debug\Entidades.pdb
+C:\Users\miguel\Desktop\CuentasCobrarColegio2\Logica\obj\Debug\Logica.csprojResolveAssemblyReference.cache
+C:\Users\miguel\Desktop\CuentasCobrarColegio2\Logica\obj\Debug\Logica.dll
+C:\Users\miguel\Desktop\CuentasCobrarColegio2\Logica\obj\Debug\Logica.pdb
