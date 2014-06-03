@@ -37,8 +37,8 @@ namespace Presentacion
 
         public void Limpiar(params TextBox[] textBoxes)
         {
-            rbCodigo.Checked = false;
-            rbNombre.Checked = false;
+            //rbCodigo.Checked = false;
+           // rbNombre.Checked = false;
             foreach (TextBox text in textBoxes)
             {
                 text.Clear();
@@ -71,7 +71,7 @@ namespace Presentacion
             if (txtIdUsuario.Text == "" && txtParametroBusqueda.Text == "") return;
 
             DataSet datosUsuario = new DataSet();
-            int idUsuario = (txtIdUsuario.Text == "" && rbCodigo.Checked == true) ? Convert.ToInt32(txtParametroBusqueda.Text) : Convert.ToInt32(txtIdUsuario.Text);
+            int idUsuario = (txtIdUsuario.Text == "") ? Convert.ToInt32(txtParametroBusqueda.Text) : Convert.ToInt32(txtIdUsuario.Text);
             UsuarioBL usuarioBl = new UsuarioBL();
             datosUsuario = usuarioBl.buscar_Usuario_By_Key(idUsuario);
             if (datosUsuario.Tables["usuarioByKey"].Rows.Count==0) 
@@ -123,20 +123,6 @@ namespace Presentacion
 
         private void txtParametroBusqueda_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (rbCodigo.Checked)
-            {
-                validarEntradaNumero(e);
-
-            }
-            else if (rbNombre.Checked)
-            {
-                validarEntradaLetras(e);
-            }
-            else
-            {
-                MessageBox.Show("Debe elegir un filtro para la busqueda");
-                txtParametroBusqueda.Focus();
-            }
         }
 
         private string validarCampos(params TextBox[] textboxes)
@@ -240,6 +226,38 @@ namespace Presentacion
         {
 
         }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvUsuario_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+          
+        }
+
+        private void dgvUsuario_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow rowSelected = this.dgvUsuario.Rows[e.RowIndex];
+
+                txtIdUsuario.Text = rowSelected.Cells["Id"].Value.ToString();
+                txtNombreUsuario.Text = rowSelected.Cells["Nombre"].Value.ToString();
+                txtPrimerApellido.Text = rowSelected.Cells["PrimerApellido"].Value.ToString();
+                txtSegundoApellido.Text = rowSelected.Cells["SegundoApellido"].Value.ToString();
+                txtDireccionUsuario.Text = rowSelected.Cells["Direccion"].Value.ToString();
+                txtTelefonoUsuario.Text = rowSelected.Cells["Telefono"].Value.ToString();
+                txtClave.Text = rowSelected.Cells["Clave"].Value.ToString();
+            }
+        }
+
 
     }
 }

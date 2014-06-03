@@ -31,42 +31,33 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMantenimientoUsuario));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.txtClave = new System.Windows.Forms.TextBox();
-            this.txtTelefonoUsuario = new System.Windows.Forms.TextBox();
-            this.txtDireccionUsuario = new System.Windows.Forms.TextBox();
-            this.txtSegundoApellido = new System.Windows.Forms.TextBox();
-            this.txtPrimerApellido = new System.Windows.Forms.TextBox();
-            this.txtNombreUsuario = new System.Windows.Forms.TextBox();
-            this.txtIdUsuario = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.dgvUsuario = new System.Windows.Forms.DataGridView();
+            this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
             this.txtParametroBusqueda = new System.Windows.Forms.TextBox();
+            this.dgvUsuario = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtIdUsuario = new System.Windows.Forms.TextBox();
+            this.txtNombreUsuario = new System.Windows.Forms.TextBox();
+            this.txtPrimerApellido = new System.Windows.Forms.TextBox();
+            this.txtSegundoApellido = new System.Windows.Forms.TextBox();
+            this.txtDireccionUsuario = new System.Windows.Forms.TextBox();
+            this.txtTelefonoUsuario = new System.Windows.Forms.TextBox();
+            this.txtClave = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.rbNombre = new System.Windows.Forms.RadioButton();
-            this.rbCodigo = new System.Windows.Forms.RadioButton();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.toolStrip1.SuspendLayout();
-            this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuario)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -74,14 +65,13 @@
             this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton1,
-            this.toolStripButton2,
             this.toolStripButton3,
             this.toolStripButton4,
-            this.toolStripButton5,
-            this.toolStripButton6});
+            this.toolStripButton6,
+            this.toolStripButton5});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(558, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(899, 25);
             this.toolStrip1.TabIndex = 15;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -96,20 +86,10 @@
             this.toolStripButton1.ToolTipText = "Nuevo";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
-            // toolStripButton2
-            // 
-            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton2.Text = "toolStripButton2";
-            this.toolStripButton2.ToolTipText = "Buscar";
-            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
-            // 
             // toolStripButton3
             // 
             this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton3.Enabled = false;
             this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
             this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton3.Name = "toolStripButton3";
@@ -121,6 +101,8 @@
             // toolStripButton4
             // 
             this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton4.DoubleClickEnabled = true;
+            this.toolStripButton4.Enabled = false;
             this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
             this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton4.Name = "toolStripButton4";
@@ -128,6 +110,18 @@
             this.toolStripButton4.Text = "toolStripButton4";
             this.toolStripButton4.ToolTipText = "Guardar";
             this.toolStripButton4.Click += new System.EventHandler(this.toolStripButton4_Click);
+            // 
+            // toolStripButton6
+            // 
+            this.toolStripButton6.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton6.Enabled = false;
+            this.toolStripButton6.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton6.Image")));
+            this.toolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton6.Name = "toolStripButton6";
+            this.toolStripButton6.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton6.Text = "toolStripButton6";
+            this.toolStripButton6.ToolTipText = "Eliminar";
+            this.toolStripButton6.Click += new System.EventHandler(this.toolStripButton6_Click);
             // 
             // toolStripButton5
             // 
@@ -139,283 +133,241 @@
             this.toolStripButton5.Text = "toolStripButton5";
             this.toolStripButton5.ToolTipText = "Imprimir";
             // 
-            // toolStripButton6
+            // txtParametroBusqueda
             // 
-            this.toolStripButton6.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton6.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton6.Image")));
-            this.toolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton6.Name = "toolStripButton6";
-            this.toolStripButton6.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton6.Text = "toolStripButton6";
-            this.toolStripButton6.ToolTipText = "Eliminar";
-            this.toolStripButton6.Click += new System.EventHandler(this.toolStripButton6_Click);
+            this.txtParametroBusqueda.Location = new System.Drawing.Point(459, 16);
+            this.txtParametroBusqueda.Name = "txtParametroBusqueda";
+            this.txtParametroBusqueda.Size = new System.Drawing.Size(98, 20);
+            this.txtParametroBusqueda.TabIndex = 1;
+            this.txtParametroBusqueda.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtParametroBusqueda_KeyPress);
             // 
-            // tabControl1
+            // dgvUsuario
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(0, 28);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(558, 327);
-            this.tabControl1.TabIndex = 16;
+            this.dgvUsuario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvUsuario.Location = new System.Drawing.Point(50, 60);
+            this.dgvUsuario.Name = "dgvUsuario";
+            this.dgvUsuario.Size = new System.Drawing.Size(720, 129);
+            this.dgvUsuario.TabIndex = 2;
+            this.dgvUsuario.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsuario_CellClick);
+            this.dgvUsuario.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsuario_CellContentClick);
             // 
-            // tabPage1
+            // label1
             // 
-            this.tabPage1.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.tabPage1.Controls.Add(this.comboBox1);
-            this.tabPage1.Controls.Add(this.pictureBox1);
-            this.tabPage1.Controls.Add(this.txtClave);
-            this.tabPage1.Controls.Add(this.txtTelefonoUsuario);
-            this.tabPage1.Controls.Add(this.txtDireccionUsuario);
-            this.tabPage1.Controls.Add(this.txtSegundoApellido);
-            this.tabPage1.Controls.Add(this.txtPrimerApellido);
-            this.tabPage1.Controls.Add(this.txtNombreUsuario);
-            this.tabPage1.Controls.Add(this.txtIdUsuario);
-            this.tabPage1.Controls.Add(this.label7);
-            this.tabPage1.Controls.Add(this.label6);
-            this.tabPage1.Controls.Add(this.label5);
-            this.tabPage1.Controls.Add(this.label4);
-            this.tabPage1.Controls.Add(this.label3);
-            this.tabPage1.Controls.Add(this.label2);
-            this.tabPage1.Controls.Add(this.label1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(550, 301);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Mantenimiento";
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label1.Location = new System.Drawing.Point(17, 25);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(19, 16);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "Id";
             // 
-            // comboBox1
+            // label2
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(778, 538);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 32;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label2.Location = new System.Drawing.Point(195, 30);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(49, 16);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "Nombre";
             // 
-            // pictureBox1
+            // label3
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(323, 6);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(219, 284);
-            this.pictureBox1.TabIndex = 29;
-            this.pictureBox1.TabStop = false;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label3.Location = new System.Drawing.Point(156, 125);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(87, 16);
+            this.label3.TabIndex = 17;
+            this.label3.Text = "Primer Apellido";
             // 
-            // txtClave
+            // label4
             // 
-            this.txtClave.Location = new System.Drawing.Point(130, 270);
-            this.txtClave.Name = "txtClave";
-            this.txtClave.Size = new System.Drawing.Size(156, 20);
-            this.txtClave.TabIndex = 28;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label4.Location = new System.Drawing.Point(141, 79);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(103, 16);
+            this.label4.TabIndex = 18;
+            this.label4.Text = "Segundo Apellido";
             // 
-            // txtTelefonoUsuario
+            // label5
             // 
-            this.txtTelefonoUsuario.Location = new System.Drawing.Point(130, 227);
-            this.txtTelefonoUsuario.Name = "txtTelefonoUsuario";
-            this.txtTelefonoUsuario.Size = new System.Drawing.Size(156, 20);
-            this.txtTelefonoUsuario.TabIndex = 27;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label5.Location = new System.Drawing.Point(466, 30);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(58, 16);
+            this.label5.TabIndex = 19;
+            this.label5.Text = "Direccion";
             // 
-            // txtDireccionUsuario
+            // label6
             // 
-            this.txtDireccionUsuario.Location = new System.Drawing.Point(130, 158);
-            this.txtDireccionUsuario.Multiline = true;
-            this.txtDireccionUsuario.Name = "txtDireccionUsuario";
-            this.txtDireccionUsuario.Size = new System.Drawing.Size(156, 51);
-            this.txtDireccionUsuario.TabIndex = 26;
-            // 
-            // txtSegundoApellido
-            // 
-            this.txtSegundoApellido.Location = new System.Drawing.Point(130, 121);
-            this.txtSegundoApellido.Name = "txtSegundoApellido";
-            this.txtSegundoApellido.Size = new System.Drawing.Size(156, 20);
-            this.txtSegundoApellido.TabIndex = 25;
-            // 
-            // txtPrimerApellido
-            // 
-            this.txtPrimerApellido.Location = new System.Drawing.Point(130, 80);
-            this.txtPrimerApellido.Name = "txtPrimerApellido";
-            this.txtPrimerApellido.Size = new System.Drawing.Size(156, 20);
-            this.txtPrimerApellido.TabIndex = 24;
-            // 
-            // txtNombreUsuario
-            // 
-            this.txtNombreUsuario.Location = new System.Drawing.Point(130, 38);
-            this.txtNombreUsuario.Name = "txtNombreUsuario";
-            this.txtNombreUsuario.Size = new System.Drawing.Size(156, 20);
-            this.txtNombreUsuario.TabIndex = 23;
-            // 
-            // txtIdUsuario
-            // 
-            this.txtIdUsuario.Location = new System.Drawing.Point(201, 6);
-            this.txtIdUsuario.Name = "txtIdUsuario";
-            this.txtIdUsuario.Size = new System.Drawing.Size(85, 20);
-            this.txtIdUsuario.TabIndex = 22;
-            this.txtIdUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtIdUsuario_KeyPress);
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label6.Location = new System.Drawing.Point(466, 122);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(54, 16);
+            this.label6.TabIndex = 20;
+            this.label6.Text = "Telefono";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(8, 273);
+            this.label7.Location = new System.Drawing.Point(195, 165);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(37, 16);
             this.label7.TabIndex = 21;
             this.label7.Text = "Clave";
             // 
-            // label6
+            // txtIdUsuario
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(8, 230);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(54, 16);
-            this.label6.TabIndex = 20;
-            this.label6.Text = "Telefono";
+            this.txtIdUsuario.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtIdUsuario.Enabled = false;
+            this.txtIdUsuario.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.txtIdUsuario.Location = new System.Drawing.Point(65, 25);
+            this.txtIdUsuario.Name = "txtIdUsuario";
+            this.txtIdUsuario.Size = new System.Drawing.Size(85, 20);
+            this.txtIdUsuario.TabIndex = 22;
+            this.txtIdUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtIdUsuario_KeyPress);
             // 
-            // label5
+            // txtNombreUsuario
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(8, 161);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(58, 16);
-            this.label5.TabIndex = 19;
-            this.label5.Text = "Direccion";
+            this.txtNombreUsuario.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtNombreUsuario.Enabled = false;
+            this.txtNombreUsuario.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.txtNombreUsuario.Location = new System.Drawing.Point(278, 26);
+            this.txtNombreUsuario.Name = "txtNombreUsuario";
+            this.txtNombreUsuario.Size = new System.Drawing.Size(156, 20);
+            this.txtNombreUsuario.TabIndex = 23;
             // 
-            // label4
+            // txtPrimerApellido
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(8, 124);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(103, 16);
-            this.label4.TabIndex = 18;
-            this.label4.Text = "Segundo Apellido";
+            this.txtPrimerApellido.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtPrimerApellido.Enabled = false;
+            this.txtPrimerApellido.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.txtPrimerApellido.Location = new System.Drawing.Point(278, 122);
+            this.txtPrimerApellido.Name = "txtPrimerApellido";
+            this.txtPrimerApellido.Size = new System.Drawing.Size(156, 20);
+            this.txtPrimerApellido.TabIndex = 24;
             // 
-            // label3
+            // txtSegundoApellido
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(8, 83);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(87, 16);
-            this.label3.TabIndex = 17;
-            this.label3.Text = "Primer Apellido";
+            this.txtSegundoApellido.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtSegundoApellido.Enabled = false;
+            this.txtSegundoApellido.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.txtSegundoApellido.Location = new System.Drawing.Point(278, 75);
+            this.txtSegundoApellido.Name = "txtSegundoApellido";
+            this.txtSegundoApellido.Size = new System.Drawing.Size(156, 20);
+            this.txtSegundoApellido.TabIndex = 25;
             // 
-            // label2
+            // txtDireccionUsuario
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(8, 41);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(49, 16);
-            this.label2.TabIndex = 16;
-            this.label2.Text = "Nombre";
+            this.txtDireccionUsuario.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtDireccionUsuario.Enabled = false;
+            this.txtDireccionUsuario.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.txtDireccionUsuario.Location = new System.Drawing.Point(559, 29);
+            this.txtDireccionUsuario.Multiline = true;
+            this.txtDireccionUsuario.Name = "txtDireccionUsuario";
+            this.txtDireccionUsuario.Size = new System.Drawing.Size(156, 66);
+            this.txtDireccionUsuario.TabIndex = 26;
             // 
-            // label1
+            // txtTelefonoUsuario
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(8, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(19, 16);
-            this.label1.TabIndex = 15;
-            this.label1.Text = "Id";
+            this.txtTelefonoUsuario.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtTelefonoUsuario.Enabled = false;
+            this.txtTelefonoUsuario.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.txtTelefonoUsuario.Location = new System.Drawing.Point(555, 122);
+            this.txtTelefonoUsuario.Name = "txtTelefonoUsuario";
+            this.txtTelefonoUsuario.Size = new System.Drawing.Size(156, 20);
+            this.txtTelefonoUsuario.TabIndex = 27;
             // 
-            // tabPage2
+            // txtClave
             // 
-            this.tabPage2.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.tabPage2.Controls.Add(this.dgvUsuario);
-            this.tabPage2.Controls.Add(this.txtParametroBusqueda);
-            this.tabPage2.Controls.Add(this.groupBox1);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(550, 301);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Consulta";
+            this.txtClave.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtClave.Enabled = false;
+            this.txtClave.Location = new System.Drawing.Point(279, 165);
+            this.txtClave.Name = "txtClave";
+            this.txtClave.PasswordChar = '*';
+            this.txtClave.Size = new System.Drawing.Size(156, 20);
+            this.txtClave.TabIndex = 28;
             // 
-            // dgvUsuario
+            // label8
             // 
-            this.dgvUsuario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvUsuario.Location = new System.Drawing.Point(11, 78);
-            this.dgvUsuario.Name = "dgvUsuario";
-            this.dgvUsuario.Size = new System.Drawing.Size(528, 213);
-            this.dgvUsuario.TabIndex = 2;
-            // 
-            // txtParametroBusqueda
-            // 
-            this.txtParametroBusqueda.Location = new System.Drawing.Point(345, 29);
-            this.txtParametroBusqueda.Name = "txtParametroBusqueda";
-            this.txtParametroBusqueda.Size = new System.Drawing.Size(100, 20);
-            this.txtParametroBusqueda.TabIndex = 1;
-            this.txtParametroBusqueda.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtParametroBusqueda_KeyPress);
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.Black;
+            this.label8.Location = new System.Drawing.Point(276, 16);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(166, 16);
+            this.label8.TabIndex = 29;
+            this.label8.Text = "Buscar por Nombre o Apellido";
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.rbNombre);
-            this.groupBox1.Controls.Add(this.rbCodigo);
-            this.groupBox1.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(14, 13);
+            this.groupBox1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.txtIdUsuario);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.txtNombreUsuario);
+            this.groupBox1.Controls.Add(this.txtClave);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.txtTelefonoUsuario);
+            this.groupBox1.Controls.Add(this.txtPrimerApellido);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.txtDireccionUsuario);
+            this.groupBox1.Controls.Add(this.txtSegundoApellido);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Location = new System.Drawing.Point(34, 41);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(190, 46);
-            this.groupBox1.TabIndex = 0;
+            this.groupBox1.Size = new System.Drawing.Size(814, 222);
+            this.groupBox1.TabIndex = 30;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Filtrar por";
+            this.groupBox1.Text = "Datos del Usuario";
             // 
-            // rbNombre
+            // groupBox2
             // 
-            this.rbNombre.AutoSize = true;
-            this.rbNombre.Location = new System.Drawing.Point(124, 19);
-            this.rbNombre.Name = "rbNombre";
-            this.rbNombre.Size = new System.Drawing.Size(64, 20);
-            this.rbNombre.TabIndex = 1;
-            this.rbNombre.TabStop = true;
-            this.rbNombre.Text = "Nombre";
-            this.rbNombre.UseVisualStyleBackColor = true;
-            // 
-            // rbCodigo
-            // 
-            this.rbCodigo.AutoSize = true;
-            this.rbCodigo.Location = new System.Drawing.Point(6, 19);
-            this.rbCodigo.Name = "rbCodigo";
-            this.rbCodigo.Size = new System.Drawing.Size(60, 20);
-            this.rbCodigo.TabIndex = 0;
-            this.rbCodigo.TabStop = true;
-            this.rbCodigo.Text = "Codigo";
-            this.rbCodigo.UseVisualStyleBackColor = true;
+            this.groupBox2.BackColor = System.Drawing.Color.White;
+            this.groupBox2.Controls.Add(this.label8);
+            this.groupBox2.Controls.Add(this.txtParametroBusqueda);
+            this.groupBox2.Controls.Add(this.dgvUsuario);
+            this.groupBox2.Location = new System.Drawing.Point(34, 269);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(814, 199);
+            this.groupBox2.TabIndex = 31;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Usuarios Registrados";
+            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // FrmMantenimientoUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.ClientSize = new System.Drawing.Size(558, 353);
-            this.Controls.Add(this.tabControl1);
+            this.BackColor = System.Drawing.Color.Silver;
+            this.ClientSize = new System.Drawing.Size(899, 480);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.toolStrip1);
             this.Name = "FrmMantenimientoUsuario";
             this.Text = "Mantenimiento Usuario";
             this.Load += new System.EventHandler(this.FrmMantenimientoUsuario_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuario)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -425,14 +377,12 @@
 
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
         private System.Windows.Forms.ToolStripButton toolStripButton3;
         private System.Windows.Forms.ToolStripButton toolStripButton4;
         private System.Windows.Forms.ToolStripButton toolStripButton5;
         private System.Windows.Forms.ToolStripButton toolStripButton6;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.DataGridView dgvUsuario;
+        private System.Windows.Forms.TextBox txtParametroBusqueda;
         private System.Windows.Forms.TextBox txtClave;
         private System.Windows.Forms.TextBox txtTelefonoUsuario;
         private System.Windows.Forms.TextBox txtDireccionUsuario;
@@ -447,12 +397,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.DataGridView dgvUsuario;
-        private System.Windows.Forms.TextBox txtParametroBusqueda;
+        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton rbNombre;
-        private System.Windows.Forms.RadioButton rbCodigo;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
     }
 }

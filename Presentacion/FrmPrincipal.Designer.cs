@@ -49,6 +49,7 @@
             this.MainMenuStrip = this.menuPrincipal;
             this.Name = "FrmPrincipal";
             this.Text = "Pantalla Principal";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmPrincipal_FormClosed);
             this.Load += new System.EventHandler(this.FrmPrincipal_Load);
             this.ResumeLayout(false);
