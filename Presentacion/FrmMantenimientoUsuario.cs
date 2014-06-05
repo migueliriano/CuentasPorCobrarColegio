@@ -9,13 +9,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Logica;
 using Entidades;
+using Presentacion.DataSisCCCTableAdapters;
 
 namespace Presentacion
 {
     public partial class FrmMantenimientoUsuario : Form
-    {
-        int Id = 0;
+    {   
         Error error;
+
 
         private static FrmMantenimientoUsuario instance = null;
 
@@ -23,8 +24,12 @@ namespace Presentacion
         {
             InitializeComponent();
             error = new Error();
+
+            txtIdUsuario.Text = ultimoIdUsuario().ToString();
+
         }
 
+        
         public static FrmMantenimientoUsuario getInstance()
         {
             if (instance == null || instance.IsDisposed)
@@ -35,16 +40,10 @@ namespace Presentacion
             return instance;
         }
 
-        public void Limpiar(params TextBox[] textBoxes)
+        private int ultimoIdUsuario()
         {
-            //rbCodigo.Checked = false;
-           // rbNombre.Checked = false;
-            foreach (TextBox text in textBoxes)
-            {
-                text.Clear();
-            }
-            Id = 0;
-            this.txtIdUsuario.Focus();
+            UsuarioBL usuarioBL = new UsuarioBL();
+            return Convert.ToInt16(usuarioBL.buscar_Ultimo_Usuario().Tables["ultimoUsuario"].Rows[0]["ultimoUser"]);
         }
 
         public void llenarGrid()
@@ -56,16 +55,60 @@ namespace Presentacion
             dgvUsuario.DataMember = "usuarios";
         }
 
-        private void toolStripButton1_Click(object sender, EventArgs e)
-        {
-            Limpiar(txtIdUsuario, txtNombreUsuario, txtPrimerApellido, txtSegundoApellido, txtDireccionUsuario, txtTelefonoUsuario, txtClave, txtParametroBusqueda);
-        }
-
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
             buscarUsuarioPorCodigo();
         }
 
+        private void habilitarTextBox(params TextBox[] textBoxes)
+        {
+            foreach (TextBox textBoxElement in textBoxes)
+            {
+                textBoxElement.BackColor = Color.White;
+                textBoxElement.Enabled = true;
+
+            }
+        }
+        private void desabilitarTextBox(params TextBox[] textBoxes)
+        {
+            foreach (TextBox textBoxElement in textBoxes)
+            {
+                textBoxElement.BackColor = Color.Silver;
+                textBoxElement.Enabled = false;
+
+            }
+        }
+
+        private void habilitarDesabilitarMenu(string nombreMenu)
+        {
+            switch (nombreMenu)
+            {
+                case "Nuevo":
+                    BtnNuevo.Enabled = false;
+                    BtnEliminar.Enabled = true;
+                    BtnEditar.Enabled = false;
+                    btnGuardar.Enabled = true;
+                    break;
+
+                case "Editar":
+                    
+                    BtnNuevo.Enabled = false;
+                    BtnEditar.Enabled = false;
+                    btnGuardar.Enabled = true;
+                    BtnEliminar.Enabled = true;
+                    break;
+
+
+                case "Seleccionar" : 
+                    BtnEliminar.Enabled = false;
+                    BtnNuevo.Enabled = true;
+                    btnGuardar.Enabled = false;
+                    BtnEditar.Enabled = true;
+                    break;
+                default :
+                    break;
+            }
+        }
         private void buscarUsuarioPorCodigo()
         {
             if (txtIdUsuario.Text == "" && txtParametroBusqueda.Text == "") return;
@@ -78,10 +121,9 @@ namespace Presentacion
             {
                 string mensaje = error.getError("nosepuedemostrar");
                 mostrarError(mensaje);
-                Limpiar(txtIdUsuario, txtNombreUsuario, txtPrimerApellido, txtSegundoApellido, txtDireccionUsuario, txtTelefonoUsuario, txtClave, txtParametroBusqueda);
                 return;
             }
-            Id = Convert.ToInt32(datosUsuario.Tables["usuarioByKey"].Rows[0]["Id"]);
+            //Id = Convert.ToInt32(txtIdUsuario.Text);
             txtNombreUsuario.Text = Convert.ToString(datosUsuario.Tables["usuarioByKey"].Rows[0]["Nombre"]);
             txtPrimerApellido.Text = Convert.ToString(datosUsuario.Tables["usuarioByKey"].Rows[0]["PrimerApellido"]);
             txtSegundoApellido.Text = Convert.ToString(datosUsuario.Tables["usuarioByKey"].Rows[0]["SegundoApellido"]);
@@ -144,22 +186,11 @@ namespace Presentacion
             return "pass";
         }
 
-        private void toolStripButton4_Click(object sender, EventArgs e)
-        {
-            string campoFallido = validarCampos(txtIdUsuario, txtNombreUsuario, txtPrimerApellido, txtSegundoApellido, txtDireccionUsuario, txtTelefonoUsuario, txtClave);
-            if (!(campoFallido == "pass"))
-            {
-                string mensaje = error.getError(campoFallido);
-                mostrarError(mensaje);
-                return;
-            }
-            guardarUsuario();
-        }
 
         private Usuario crearUsuario()
         {
             Dictionary<string, string> datosUsuario = new Dictionary<string, string>();
-            datosUsuario.Add("id",Convert.ToString(Id));
+            datosUsuario.Add("id",txtIdUsuario.Text);
             datosUsuario.Add("nombre",txtNombreUsuario.Text);
             datosUsuario.Add("primerApellido",txtPrimerApellido.Text);
             datosUsuario.Add("segundoApellido",txtSegundoApellido.Text);
@@ -174,23 +205,28 @@ namespace Presentacion
         {
             string mensaje;
             UsuarioBL usuarioBL = new UsuarioBL();
-            if (Id > 0)
+
+           string idActual = txtIdUsuario.Text;
+           string ultimoId = ultimoIdUsuario().ToString();
+
+           if (idActual != ultimoId)
             {
                 Usuario usuario = crearUsuario();
                 usuarioBL.actualizar_Usuario(usuario);
                 mensaje = error.getError("actualizado");
+                desabilitarTextBox(txtNombreUsuario, txtPrimerApellido, txtSegundoApellido, txtDireccionUsuario, txtClave, txtTelefonoUsuario);
+                llenarGrid();
             }
             else 
             {
-                DataSet ultimoId = new DataSet();
-                ultimoId = usuarioBL.buscar_Ultimo_Usuario();
-                Id = Convert.ToInt32(ultimoId.Tables["ultimoUsuario"].Rows[0]["Id"]) + 1;
                 Usuario usuario = crearUsuario();
                 usuarioBL.insertar_Usuario(usuario);
                 mensaje = error.getError("creado");
+                desabilitarTextBox(txtNombreUsuario,txtPrimerApellido,txtSegundoApellido,txtDireccionUsuario,txtClave,txtTelefonoUsuario);
+                llenarGrid();
             }
             mostrarError(mensaje);
-            Limpiar(txtIdUsuario, txtNombreUsuario, txtPrimerApellido, txtSegundoApellido, txtDireccionUsuario, txtTelefonoUsuario, txtClave, txtParametroBusqueda);
+
         }
 
         private void mostrarError(string mensaje)
@@ -198,23 +234,19 @@ namespace Presentacion
             MessageBox.Show(mensaje);
         }
 
-        private void toolStripButton6_Click(object sender, EventArgs e)
-        {
-            eliminar();
-        }
-
         private void eliminar()
         {
-            if (Id == 0)
+            /*if (Id == 0)
             {
                 mostrarError(error.getError("nosepuedeeliminar"));
                 return;
             }
             UsuarioBL usuarioBL = new UsuarioBL();
             usuarioBL.eliminar_Usuario(Id);
+
             string mensaje = error.getError("eliminado");
             mostrarError(mensaje);
-            Limpiar(txtIdUsuario, txtNombreUsuario, txtPrimerApellido, txtSegundoApellido, txtDireccionUsuario, txtTelefonoUsuario, txtClave, txtParametroBusqueda);
+            llenarGrid();*/
         }
 
         private void FrmMantenimientoUsuario_Load(object sender, EventArgs e)
@@ -222,10 +254,6 @@ namespace Presentacion
             llenarGrid();
         }
 
-        private void toolStripButton3_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void tabPage1_Click(object sender, EventArgs e)
         {
@@ -237,12 +265,8 @@ namespace Presentacion
 
         }
 
-        private void dgvUsuario_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-          
-        }
 
-        private void dgvUsuario_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvUsuario_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
@@ -256,6 +280,33 @@ namespace Presentacion
                 txtTelefonoUsuario.Text = rowSelected.Cells["Telefono"].Value.ToString();
                 txtClave.Text = rowSelected.Cells["Clave"].Value.ToString();
             }
+
+            habilitarDesabilitarMenu("Seleccionar");
+            desabilitarTextBox(txtNombreUsuario,txtNombreUsuario,txtSegundoApellido,txtPrimerApellido,txtDireccionUsuario,txtClave,txtTelefonoUsuario);
+        }
+
+        private void BtnNuevo_Click(object sender, EventArgs e)
+        {
+            habilitarTextBox(txtNombreUsuario, txtPrimerApellido, txtSegundoApellido, txtDireccionUsuario, txtTelefonoUsuario, txtClave, txtParametroBusqueda);
+            habilitarDesabilitarMenu("Nuevo");
+            txtNombreUsuario.Focus();
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            string campoFallido = validarCampos(txtIdUsuario, txtNombreUsuario, txtPrimerApellido, txtSegundoApellido, txtDireccionUsuario, txtTelefonoUsuario, txtClave);
+            if (!(campoFallido == "pass"))
+            {
+                string mensaje = error.getError(campoFallido);
+                mostrarError(mensaje);
+                return;
+            }
+            guardarUsuario();
+        }
+
+        private void BtnEliminar_Click(object sender, EventArgs e)
+        {
+            eliminar();
         }
 
 
