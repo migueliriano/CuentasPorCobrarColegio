@@ -96,6 +96,7 @@
             this.BtnEditar.Size = new System.Drawing.Size(23, 22);
             this.BtnEditar.Text = "toolStripButton3";
             this.BtnEditar.ToolTipText = "Editar";
+            this.BtnEditar.Click += new System.EventHandler(this.BtnEditar_Click);
             // 
             // btnGuardar
             // 
@@ -138,6 +139,7 @@
             this.txtParametroBusqueda.Name = "txtParametroBusqueda";
             this.txtParametroBusqueda.Size = new System.Drawing.Size(98, 20);
             this.txtParametroBusqueda.TabIndex = 1;
+            this.txtParametroBusqueda.TextChanged += new System.EventHandler(this.txtParametroBusqueda_TextChanged);
             this.txtParametroBusqueda.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtParametroBusqueda_KeyPress);
             // 
             // dgvUsuario

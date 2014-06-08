@@ -105,8 +105,22 @@ namespace Presentacion
                     btnGuardar.Enabled = false;
                     BtnEditar.Enabled = true;
                     break;
+
                 default :
+                    BtnNuevo.Enabled = true;
+                    BtnEditar.Enabled = false;
+                    btnGuardar.Enabled = false;
+                    BtnEliminar.Enabled = false;
                     break;
+            }
+        }
+
+        private void limpiarCampos(params TextBox[] textBoxs)
+        {
+            foreach (TextBox textBoxElement in textBoxs)
+            {
+                textBoxElement.Clear();
+
             }
         }
         private void buscarUsuarioPorCodigo()
@@ -236,17 +250,37 @@ namespace Presentacion
 
         private void eliminar()
         {
-            /*if (Id == 0)
-            {
-                mostrarError(error.getError("nosepuedeeliminar"));
-                return;
-            }
-            UsuarioBL usuarioBL = new UsuarioBL();
-            usuarioBL.eliminar_Usuario(Id);
+            string idActual = txtIdUsuario.Text;
+            string ultimoId = ultimoIdUsuario().ToString();
 
-            string mensaje = error.getError("eliminado");
-            mostrarError(mensaje);
-            llenarGrid();*/
+            if (idActual != ultimoId)
+            {
+                DialogResult si_eliminar = MessageBox.Show("Seguro que decea eliminar al usuario", "Eliminar Usuario",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+
+                if (si_eliminar == DialogResult.Yes)
+                {
+                    UsuarioBL usuarioBL = new UsuarioBL();
+                    usuarioBL.eliminar_Usuario(Convert.ToInt32(txtIdUsuario));
+
+                    string mensaje = error.getError("eliminado");
+                    mostrarError(mensaje);
+                    llenarGrid();
+                }
+            }
+
+            else
+            {
+                DialogResult si_cancelar = MessageBox.Show("No se han guardado los cambios del usuario, ¿Seguo que decea Cancelar?", "Cancelar",
+                   MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+
+                if (si_cancelar == DialogResult.Yes)
+                {
+                    habilitarDesabilitarMenu("");
+                    desabilitarTextBox(txtNombreUsuario,txtPrimerApellido,txtSegundoApellido,txtTelefonoUsuario,txtClave,txtDireccionUsuario);
+                }
+            }
+           
         }
 
         private void FrmMantenimientoUsuario_Load(object sender, EventArgs e)
@@ -288,8 +322,11 @@ namespace Presentacion
         private void BtnNuevo_Click(object sender, EventArgs e)
         {
             habilitarTextBox(txtNombreUsuario, txtPrimerApellido, txtSegundoApellido, txtDireccionUsuario, txtTelefonoUsuario, txtClave, txtParametroBusqueda);
+            limpiarCampos(txtNombreUsuario, txtPrimerApellido, txtSegundoApellido, txtDireccionUsuario, txtTelefonoUsuario, txtClave, txtParametroBusqueda);
             habilitarDesabilitarMenu("Nuevo");
+            
             txtNombreUsuario.Focus();
+            txtIdUsuario.Text = ultimoIdUsuario().ToString();
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -307,6 +344,24 @@ namespace Presentacion
         private void BtnEliminar_Click(object sender, EventArgs e)
         {
             eliminar();
+        }
+
+        private void BtnEditar_Click(object sender, EventArgs e)
+        {
+
+            habilitarDesabilitarMenu("Editar");
+            habilitarTextBox(txtNombreUsuario,txtPrimerApellido,txtSegundoApellido,txtTelefonoUsuario,txtDireccionUsuario,txtClave);
+            txtNombreUsuario.Focus();
+
+        }
+
+        private void txtParametroBusqueda_TextChanged(object sender, EventArgs e)
+        {
+            UsuarioBL usuarioBL = new UsuarioBL();
+
+            dgvUsuario.DataSource = usuarioBL.buscar_por_id_nombre(txtParametroBusqueda.Text);
+            dgvUsuario.DataMember = "nombreIdUsuario";
+
         }
 
 

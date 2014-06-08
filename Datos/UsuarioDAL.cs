@@ -48,7 +48,7 @@ namespace Datos
                 accesoConexion.ObtenerConexion().Open();
                 comandoSql = new SqlCommand("proc_UsuarioLoadByPrimaryKey", accesoConexion.ObtenerConexion());
                 comandoSql.CommandType = CommandType.StoredProcedure;
-                comandoSql.Parameters.AddWithValue("@Id",idUsuario);
+                comandoSql.Parameters.AddWithValue("@Id", idUsuario);
                 adaptadorSql.SelectCommand = comandoSql;
                 adaptadorSql.Fill(dsUsuario, "usuarioByKey");
                 return dsUsuario;
@@ -87,7 +87,31 @@ namespace Datos
             }
         }
 
-        public DataSet validar_Usuario(int idUsuario, string clave)
+        public DataSet buscar_Por_Nombre_Id(string nombreId)
+    {
+        try
+        {
+            accesoConexion.ObtenerConexion().Open();
+            comandoSql = new SqlCommand("proc_UsuarioBuscarPorIdNombre", accesoConexion.ObtenerConexion());
+            comandoSql.CommandType = CommandType.StoredProcedure;
+            comandoSql.Parameters.AddWithValue("@Buscar", nombreId);
+            adaptadorSql.SelectCommand = comandoSql;
+            adaptadorSql.Fill(dsUsuario, "nombreIdUsuario");
+            return dsUsuario;
+        }
+        catch (Exception)
+        {
+
+            throw;
+        }
+        finally
+        {
+            accesoConexion.ObtenerConexion().Close();
+        }
+            
+    }
+
+    public DataSet validar_Usuario(int idUsuario, string clave)
         {
 
             try
@@ -169,6 +193,8 @@ namespace Datos
                 accesoConexion.ObtenerConexion().Close();
             }
         }
+
+
 
         public void eliminar_Usuario(int idUsario)
         {

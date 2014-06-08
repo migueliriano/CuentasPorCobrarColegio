@@ -47,5 +47,10 @@ namespace Logica
         {
             usuarioDAL.eliminar_Usuario(idUsario);
         }
+
+        public DataSet buscar_por_id_nombre(string nombreId)
+        {
+            return  usuarioDAL.buscar_Por_Nombre_Id(nombreId);
+        }
     }
 }
